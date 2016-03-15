@@ -1,0 +1,34 @@
+﻿{
+  "version": "3.0.0-rc1",
+  "description": "SimplePersistence.UoW.EF7 offers implementations to the SimplePersistence.UoW using the Entity Framework 7 as the ORM.",
+  "authors": [ "João Simões" ],
+  "tags": [ "unit of work", "uow", "persistence", "pattern", "Entity Framework 7", "EF7" ],
+  "projectUrl": "https://github.com/SimplePersistence/SimplePersistence.UoW.EF7",
+  "licenseUrl": "https://github.com/SimplePersistence/SimplePersistence.UoW.EF7/blob/master/LICENSE",
+  "iconUrl": "https://avatars3.githubusercontent.com/u/17026510",
+  "language": "en-US",
+  "copyright": "Copyright © 2016 SimplePersistence",
+  "releaseNotes": "",
+
+  "frameworks": {
+    "dnx4.5.1": {
+
+    },
+    "dnxcore5": {
+
+    },
+    "dotnet5.4": {
+
+    },
+    "net4.5.1": {
+
+    },
+    "netcore5": {
+
+    }
+  },
+  "dependencies": {
+    "EntityFramework.Core": "7.0.0-rc1-final",
+    "SimplePersistence.Model": "3.0.2"
+  }
+}
