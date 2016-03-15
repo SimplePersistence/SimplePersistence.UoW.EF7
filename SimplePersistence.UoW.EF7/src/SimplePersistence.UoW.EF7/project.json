@@ -21,7 +21,9 @@
 
     },
     "net4.5.1": {
-
+      "frameworkAssemblies": {
+        "System.Runtime": ""
+      }
     },
     "netcore5": {
 
