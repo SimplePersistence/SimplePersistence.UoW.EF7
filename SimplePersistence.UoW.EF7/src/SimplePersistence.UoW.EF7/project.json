@@ -29,6 +29,6 @@
   },
   "dependencies": {
     "EntityFramework.Core": "7.0.0-rc1-final",
-    "SimplePersistence.Model": "3.0.2"
+    "SimplePersistence.Uow": "3.0.0"
   }
 }
