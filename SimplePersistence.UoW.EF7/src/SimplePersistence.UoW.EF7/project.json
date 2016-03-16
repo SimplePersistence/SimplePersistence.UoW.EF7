@@ -1,5 +1,6 @@
 ﻿{
   "version": "3.0.0-rc1",
+  "title": "SimplePersistence.UoW.EF7",
   "description": "SimplePersistence.UoW.EF7 offers implementations to the SimplePersistence.UoW using the Entity Framework 7 as the ORM.",
   "authors": [ "João Simões" ],
   "tags": [ "unit of work", "uow", "persistence", "pattern", "Entity Framework 7", "EF7" ],
