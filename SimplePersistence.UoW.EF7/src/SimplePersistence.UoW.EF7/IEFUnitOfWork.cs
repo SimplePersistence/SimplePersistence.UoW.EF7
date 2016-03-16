@@ -32,7 +32,7 @@ namespace SimplePersistence.UoW.EF7
     /// </summary>
     /// <typeparam name="TDbContext">The database context</typeparam>
     [CLSCompliant(false)]
-    public interface IEFUnitOfWork<out TDbContext> : IWorkArea
+    public interface IEFUnitOfWork<out TDbContext> : IUnitOfWork
         where TDbContext : DbContext
     {
         /// <summary>
