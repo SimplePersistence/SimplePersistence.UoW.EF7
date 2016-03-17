@@ -561,6 +561,7 @@ namespace SimplePersistence.UoW.EF7
         /// </returns>
         public async Task<TEntity> GetByIdAsync(params object[] ids)
         {
+            if (ids == null) throw new ArgumentNullException(nameof(ids));
             return await GetByIdAsync(CancellationToken.None, ids);
         }
 
@@ -573,6 +574,7 @@ namespace SimplePersistence.UoW.EF7
         /// </returns>
         public async Task<TEntity> GetByIdAsync(CancellationToken ct, params object[] ids)
         {
+            if (ids == null) throw new ArgumentNullException(nameof(ids));
             return await QueryById(ids).SingleOrDefaultAsync(ct);
         }
 
@@ -585,6 +587,7 @@ namespace SimplePersistence.UoW.EF7
         /// </returns>
         public async Task<TEntity> AddAsync(TEntity entity, CancellationToken ct = new CancellationToken())
         {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
             return await Task.FromResult(Add(entity));
         }
 
@@ -597,6 +600,7 @@ namespace SimplePersistence.UoW.EF7
         /// </returns>
         public async Task<IEnumerable<TEntity>> AddAsync(IEnumerable<TEntity> entities, CancellationToken ct = new CancellationToken())
         {
+            if (entities == null) throw new ArgumentNullException(nameof(entities));
             return await AddAsync(ct, entities.ToArray());
         }
 
@@ -609,6 +613,7 @@ namespace SimplePersistence.UoW.EF7
         /// </returns>
         public async Task<IEnumerable<TEntity>> AddAsync(params TEntity[] entities)
         {
+            if (entities == null) throw new ArgumentNullException(nameof(entities));
             return await AddAsync(CancellationToken.None, entities);
         }
 
@@ -621,6 +626,7 @@ namespace SimplePersistence.UoW.EF7
         /// </returns>
         public async Task<IEnumerable<TEntity>> AddAsync(CancellationToken ct, params TEntity[] entities)
         {
+            if (entities == null) throw new ArgumentNullException(nameof(entities));
             return await Task.FromResult(Add(entities));
         }
 
@@ -633,6 +639,7 @@ namespace SimplePersistence.UoW.EF7
         /// </returns>
         public async Task<TEntity> UpdateAsync(TEntity entity, CancellationToken ct = new CancellationToken())
         {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
             return await Task.FromResult(Update(entity));
         }
 
@@ -645,6 +652,7 @@ namespace SimplePersistence.UoW.EF7
         /// </returns>
         public async Task<IEnumerable<TEntity>> UpdateAsync(IEnumerable<TEntity> entities, CancellationToken ct = new CancellationToken())
         {
+            if (entities == null) throw new ArgumentNullException(nameof(entities));
             return await UpdateAsync(ct, entities.ToArray());
         }
 
@@ -657,6 +665,7 @@ namespace SimplePersistence.UoW.EF7
         /// </returns>
         public async Task<IEnumerable<TEntity>> UpdateAsync(params TEntity[] entities)
         {
+            if (entities == null) throw new ArgumentNullException(nameof(entities));
             return await UpdateAsync(CancellationToken.None, entities);
         }
 
@@ -669,6 +678,7 @@ namespace SimplePersistence.UoW.EF7
         /// </returns>
         public async Task<IEnumerable<TEntity>> UpdateAsync(CancellationToken ct, params TEntity[] entities)
         {
+            if (entities == null) throw new ArgumentNullException(nameof(entities));
             return await Task.FromResult(Update(entities));
         }
 
@@ -681,6 +691,7 @@ namespace SimplePersistence.UoW.EF7
         /// </returns>
         public async Task<TEntity> DeleteAsync(TEntity entity, CancellationToken ct = new CancellationToken())
         {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
             return await Task.FromResult(Delete(entity));
         }
 
@@ -693,6 +704,7 @@ namespace SimplePersistence.UoW.EF7
         /// </returns>
         public async Task<IEnumerable<TEntity>> DeleteAsync(IEnumerable<TEntity> entities, CancellationToken ct = new CancellationToken())
         {
+            if (entities == null) throw new ArgumentNullException(nameof(entities));
             return await DeleteAsync(ct, entities.ToArray());
         }
 
@@ -705,6 +717,7 @@ namespace SimplePersistence.UoW.EF7
         /// </returns>
         public async Task<IEnumerable<TEntity>> DeleteAsync(params TEntity[] entities)
         {
+            if (entities == null) throw new ArgumentNullException(nameof(entities));
             return await DeleteAsync(CancellationToken.None, entities);
         }
 
@@ -717,6 +730,7 @@ namespace SimplePersistence.UoW.EF7
         /// </returns>
         public async Task<IEnumerable<TEntity>> DeleteAsync(CancellationToken ct, params TEntity[] entities)
         {
+            if (entities == null) throw new ArgumentNullException(nameof(entities));
             return await Task.FromResult(Delete(entities));
         }
 
@@ -741,6 +755,7 @@ namespace SimplePersistence.UoW.EF7
         /// </returns>
         public async Task<bool> ExistsAsync(params object[] ids)
         {
+            if (ids == null) throw new ArgumentNullException(nameof(ids));
             return await ExistsAsync(CancellationToken.None, ids);
         }
 
@@ -753,6 +768,7 @@ namespace SimplePersistence.UoW.EF7
         /// </returns>
         public async Task<bool> ExistsAsync(CancellationToken ct, params object[] ids)
         {
+            if (ids == null) throw new ArgumentNullException(nameof(ids));
             return await QueryById(ids).AnyAsync(ct);
         }
 
@@ -769,6 +785,7 @@ namespace SimplePersistence.UoW.EF7
         /// </returns>
         public TEntity GetById(params object[] ids)
         {
+            if (ids == null) throw new ArgumentNullException(nameof(ids));
             return QueryById(ids).SingleOrDefault();
         }
 
@@ -781,6 +798,7 @@ namespace SimplePersistence.UoW.EF7
         /// </returns>
         public TEntity Add(TEntity entity)
         {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
             return Set.Add(entity).Entity;
         }
 
@@ -822,6 +840,8 @@ namespace SimplePersistence.UoW.EF7
         /// </returns>
         public TEntity Update(TEntity entity)
         {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+
             var dbEntityEntry = Context.Entry(entity);
             if (dbEntityEntry.State == EntityState.Detached)
                 Set.Attach(entity);
@@ -868,6 +888,8 @@ namespace SimplePersistence.UoW.EF7
         /// </returns>
         public TEntity Delete(TEntity entity)
         {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+
             var dbEntityEntry = Context.Entry(entity);
             if (dbEntityEntry.State != EntityState.Deleted)
             {
@@ -921,6 +943,7 @@ namespace SimplePersistence.UoW.EF7
 
         public bool Exists(params object[] ids)
         {
+            if (ids == null) throw new ArgumentNullException(nameof(ids));
             return QueryById(ids).Any();
         }
 
